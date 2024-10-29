@@ -13,7 +13,7 @@
                 <p class="headlines__greetings">Найдите автомобиль своей мечты!</p>
             </div>
 
-            <form class="form" action="{% url 'login' %}" method="POST">
+            <form class="form" method="POST">
                 {% csrf_token %}
                 <div class="form__input">
                     {{ form.username }}

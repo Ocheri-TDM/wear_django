@@ -94,7 +94,6 @@ def news(request):
 
 logger = logging.getLogger(__name__)
 def user_sign(request):
-
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():
