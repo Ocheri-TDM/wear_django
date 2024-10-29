@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Новости{% endblock %}
+
+{% block content %}
+{% load static %}
+    <section class="news__list">
+        <div class="container">
+            <div class="backBtn"><a class="link" href="{% url 'home' %}"><img src="{% static './images/icon/back.svg' %}" alt="back"></a></div>
+            
+            {% for news in news %}
+            <a class="link" href="{% url 'infoNews' pk=news.pk %}">
+            <div class="news__block">
+                <img src="{{ news.image.url}}" alt="newsImg">
+                <div class="news__blockInfo">
+                    <h2>{{news.title}} </h2>
+                    <h4 class="news__data">{{news.date}} </h4>
+                </div>
+            </div>
+            </a>
+            {% endfor %}   
+        </div>
+    </section>
+
+{% endblock %}

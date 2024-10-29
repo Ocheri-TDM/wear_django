@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static './images/icon/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static './css/main.css' %}">
+    <title>{% block title%}{%  endblock%}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="{% url 'home' %}" class="main__logo link">AggregatorCars</a>
+                </div>
+                <div class="burger">
+                    <span></span>
+                </div>
+                <ul class="nav__menu">
+                    <div class="nav__menu-links">
+                        <li class="nav__link">
+                            <a class="link" href="{% url 'home' %}">
+                                <img src="{% static './images/icon/home.svg' %}" alt="home">
+                                <span class="active">Главная</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__link">
+                            <a class="link" href="{% url 'categories_list' %}">
+                                <img src="{% static './images/icon/categories.svg' %}" alt="categories">
+                                <span>Категории</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__link">
+                            <a class="link" href="{% url 'news' %}">
+                                <img src="{% static './images/icon/guides.svg' %}" alt="guides">
+                                <span>Новости</span>
+                            </a>
+                        </li>
+                        {% if not user.is_authenticated %}
+                        <li class="nav__link">
+                            <a class="link" href="{% url 'sign' %}">
+                                <img src="{% static './images/icon/signup.svg' %}" alt="signup">
+                                <span>Регистрация</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav__link">
+                            <a class="link" href="{% url 'login' %}">
+                                <img src="{% static './images/icon/login.svg' %}" alt="login">
+                                <span>Вход</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="nav__link">
+                            <a class="link" href="{% url 'logout'%}">
+                                <img src="{% static './images/icon/logout.svg' %}" alt="logout">
+                                <span>{{user.username}}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+<script src="{% static './js/script.js' %}"></script>
+</body>
+</html>

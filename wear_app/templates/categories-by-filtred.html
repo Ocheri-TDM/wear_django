@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+{% load static %}
+    <section class="cars">
+        <div class="container">
+            <div class="backBtn"><a class="link" href="{% url 'home' %}"><img src="{% static './images/icon/back.svg' %}" alt="back"></a></div>
+            <h1>{{categories_filter.name}}</h1>
+            <div class="cars__blocks">
+                {% for Car_card in car_card %}
+                <div class="block__car">
+                    <a href="{% url 'car_card' pk=Car_card.pk %}" class="link">
+                    <img src="{{ Car_card.image.url }}" alt="cobalt">
+                    <div class="car__info">
+                        <h3 class="car__name">{{ Car_card.title}} </h3>
+                        <h4 class="car__price">
+                        {% if Car_card.cost == "Договорная"%}  
+                        {{ Car_card.cost }}
+                        {% else %}
+                        {{ Car_card.cost }} ₸
+                        {% endif %}
+                        </h4>
+                    </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

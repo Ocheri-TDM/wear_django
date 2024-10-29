@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}{{car_card.title}}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <section class="post">
+        <div class="container">
+            <div class="backBtn"><a class="link" href="{% url 'home' %}"><img src="{% static './images/icon/back.svg' %}" alt="back"></a></div>
+            <h1>{{ car_card.title }}</h1>
+            <h2>АО {{car_card.company}} </h2>
+            <img src="{{car_card.image.url}}" alt="cobalt">
+            <h1>Цена от: {{car_card.cost}}</h1>
+            <p class="post__description"><span>Описание:</span>{{car_card.discription}} </p>
+            <div class="post__infoCard">
+                <p class="infoCard__title">Технические характеристики</p>
+                <ul class="infoCard__description">
+                    <li>Трансмиссия: {{car_card.transmision}}</li>
+                    <li>Тип двигателя:{{car_card.engineType}} </li>
+                    <li>Объем двигателя:{{car_card.engineCapacity}} </li>
+                    <li>Мощность:{{car_card.power}} </li>
+                    <li>Привод:{{car_card.actuator}} </li>
+                </ul>
+            </div>
+
+            <div class="post__infoCard">
+                <p class="infoCard__title">Контакты</p>
+                <ul class="infoCard__description">
+                    <li>Адрес: {{car_card.address}}</li>
+                    <li>Телефон: {{car_card.number}}</li>
+                    <li>E-mail: {{car_card.email}}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

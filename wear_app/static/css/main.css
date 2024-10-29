@@ -1,0 +1,108 @@
+@import url(fonts.css);
+@import url(navbar.css);
+@import url(carsGrid.css);
+@import url(post.css);
+@import url(categories.css);
+@import url(news.css);
+@import url(form.css);
+
+*,*::before, *:after{   
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+} 
+
+:root {
+    --background: #F9FAFB;
+    --light: #FFFFFF;
+    --secondary: #A3A3AA;
+    --success: #FF5C00;
+    --dark: #040415;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    margin: 0;
+    background-color: var(--background);
+}
+
+section{
+    margin-bottom: 50px;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+h1{
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--dark);
+}
+
+h2{
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--dark);
+}
+
+.categories{
+    margin-bottom: 0px;
+}
+
+.backBtn{
+    width: 24px;
+    margin-bottom: 10px;
+}
+
+.backBtn img{
+    width: 100%;
+}
+
+.categories__list{
+    margin: 30px 0;
+}
+
+.category__item{
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: var(--light);
+    background-color: var(--success);
+    border-radius: 30px;
+    padding: 10px 25px;
+}
+
+.category__item:hover{
+    color: var(--success);
+    background-color: var(--light);
+    border: 1px solid var(--success);
+    padding: 9px 24px;
+}
+
+@media (max-width: 425px) {
+    h1{
+        font-size: 22px;
+    }
+    
+    h2{
+        font-size: 16px;
+    }
+}

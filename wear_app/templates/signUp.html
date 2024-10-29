@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <section class="forms">
+        <div class="container">
+            <div class="backBtn"><a class="link" href="index.html"><img src="{% static './images/icon/back.svg' %}" alt="back"></a></div>
+            <div class="form__headlines">
+                <p class="headlines__name">Зарегистрироваться</p>
+                <p class="headlines__greetings">Найдите автомобиль своей мечты!</p>
+            </div>
+
+            <form class="form" action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <div class="form__input">
+                    {{ form.username }}
+                </div>
+                <div class="form__input">
+                    {{ form.email }}
+                </div>
+                <div class="form__input">
+                    {{ form.password1 }}
+                </div>
+                <div class="form__input">
+                    {{ form.password2 }}
+                </div>
+                <button class="form__button" type="submit">Зарегистрироваться</button>
+            </form>
+
+            <div class="form__description">
+                <p>У вас уже есть аккаунт?</p>
+                <a class="link" href="{% url 'login' %}">Войти</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <section class="categories">
+        <div class="container">
+            <h1>Категории</h1>
+            <div class="categories__list">
+                <a href="{% url 'home' %}" class="category__item link">Все</a>
+                {% for category in categories %}
+                <a href="{% url 'categories_by_filtred' slug=category.slug %}" class="category__item link">{{ category.name }}</a>
+                {% endfor%}
+            </div>
+        </div>
+    </section>
+
+    <section class="cars">
+        <div class="container">
+            <h1>Рекомендация</h1>
+            <div class="cars__blocks">
+                {% for Car_card in car_card %}
+                <div class="block__car">
+                    <a href="{% url 'car_card' pk=Car_card.pk %}" class="link">
+                    <img src="{{ Car_card.image.url }}" alt="cobalt">
+                    <div class="car__info">
+                        <h3 class="car__name">{{ Car_card.title}} </h3>
+                        <h4 class="car__price">
+                        {% if Car_card.cost == "Договорная"%}  
+                        {{ Car_card.cost }}
+                        {% else %}
+                        {{ Car_card.cost }} ₸
+                        {% endif %}
+                        </h4>
+                    </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

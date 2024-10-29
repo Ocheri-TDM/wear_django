@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ news.title }}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <section class="post">
+        <div class="container">
+            <div class="backBtn"><a class="link" href="{% url 'news' %}"><img src="{% static 'images/icon/back.svg' %}" alt="back"></a></div>
+            <h1>{{news.title}}</h1>
+            <img src="{{news.image.url}}" alt="cobalt">
+            <p class="post__description">{{news.discription}}</p>
+            <h4 class="news__data">{{news.date}}</h4>
+        </div>
+    </section>
+{% endblock %}
